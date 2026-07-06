@@ -1,4 +1,25 @@
-# Project 9: L'Oréal Routine Builder
-L’Oréal is expanding what’s possible with AI, and now your chatbot is getting smarter. This week, you’ll upgrade it into a product-aware routine builder. 
+# AI Skincare & Beauty Routine Advisor
 
-Users will be able to browse real L’Oréal brand products, select the ones they want, and generate a personalized routine using AI. They can also ask follow-up questions about their routine—just like chatting with a real advisor.
+An interactive product advisor that lets users browse a beauty product catalog, build a personalized selection, and generate an AI-powered routine — with a follow-up chat interface for continued Q&A.
+
+**[Live demo](https://sanaadnan25.github.io/09-prj-loreal-routine-builder/)**
+
+## What it does
+
+- Browse and filter products by category, or search by keyword
+- Select multiple products, with selections persisted via `localStorage`
+- Generate a personalized routine using an LLM, based on the exact products selected
+- Ask follow-up questions in a multi-turn chat — the advisor keeps conversation context and stays scoped to skincare/haircare/makeup/fragrance topics
+- RTL/LTR toggle for layout accessibility
+
+## How it works
+
+The frontend is vanilla JS (no framework) talking to a small **Cloudflare Worker** I deployed as a proxy to an OpenAI-compatible chat completions API. This keeps API credentials off the client and gives a single endpoint to manage rate limiting/logic server-side.
+
+Each chat session builds a `messages` array (`system` / `user` / `assistant` roles) that's sent in full on every request, so the model has the complete conversation history — not just the latest question. The system prompt constrains the advisor to on-topic beauty/routine questions.
+
+**Stack:** HTML/CSS/JS, Cloudflare Workers, OpenAI-compatible chat API
+
+## Notes
+
+This project began from a coursework template (GCA-Classroom) and was extended with the API integration, multi-turn context handling, product search/filter logic, and UI features described above.
