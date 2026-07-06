@@ -2,7 +2,7 @@
 
 An interactive product advisor that lets users browse a beauty product catalog, build a personalized selection, and generate an AI-powered routine — with a follow-up chat interface for continued Q&A.
 
-**[Live demo](https://sanaadnan25.github.io/09-prj-loreal-routine-builder/)**
+**[Live demo](https://sanaadnan25.github.io/ai-skincare-routine-advisor/))**
 
 ## What it does
 
